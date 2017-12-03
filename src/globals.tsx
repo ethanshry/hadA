@@ -6,7 +6,8 @@ const globals: any = {
         },
         post: {
             fontFamily: 'monospace',
-            fontSizeMain: '1em'
+            fontSizeMain: '1em',
+            fontSizeHeader: '2.2em'
         },
         body: {
             fontFamily: 'monospace'

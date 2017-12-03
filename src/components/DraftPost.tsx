@@ -42,12 +42,15 @@ export default class DraftPost extends React.Component<{}, iDraftPostState> {
         if (this.state.isActive) {
             return {
                 color: "#A1A1A1",
-                border: '1px solid ' + globals.colors.dark,
+                border: '1px solid ' + globals.colors.gray1,
                 transition: '1.5s',
-
-                position: 'absolute',
+                backgroundColor: globals.colors.light,
+                position: 'fixed',
                 width: '50vw',
-                padding: '15px'
+                padding: '15px',
+                zIndex: 1,
+                top: 20,
+                left: 20
             };
         } else {
             return {
@@ -113,12 +116,13 @@ export default class DraftPost extends React.Component<{}, iDraftPostState> {
 
     render() {
         return (
-            <div style={this.getContainerStyle()}>
+            <div>
                 {//<FontIcon className="material-icons" onMouseOver={this.toggleHover} onMouseOut={this.toggleHover} style={this.getIconStyle()}>create</FontIcon>
                 }
-                <div onClick={this.toggleDraftModeActive} onMouseOver={this.toggleHover} onMouseOut={this.toggleHover}> <CreateIcon fontSize={24} color={globals.colors.gray1} /> </div>
+                <div onClick={this.toggleDraftModeActive} onMouseOver={this.toggleHover} onMouseOut={this.toggleHover}> <CreateIcon fontSize={40} color={globals.colors.gray1} /> </div>
                 {this.state.isActive &&
-                <div>
+                <div style={this.getContainerStyle()}>
+                    <div onClick={this.toggleDraftModeActive} onMouseOver={this.toggleHover} onMouseOut={this.toggleHover}> <CreateIcon fontSize={40} color={globals.colors.gray1} /> </div>
                     <div style={this.getCenteredContentStyle()}>
                         <input type='text' placeholder='username' style={this.getUsernameInputStyle()} id='usernameInput'/>
                         <select style={this.getTypeDropdownStyle()} id="postCategory">

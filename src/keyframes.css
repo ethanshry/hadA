@@ -20,3 +20,7 @@
 .postBodyFilterOption:hover {
     background-color: #AAAAAA
 }
+
+.post {
+    transition: 0.5s
+}

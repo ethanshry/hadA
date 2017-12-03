@@ -1,3 +1,13 @@
+
+export interface iPost {
+    user: String;
+    id: number; // hex??
+    category: String;
+    content: String;
+    timestamp: String;
+    stars: number;
+}
+
 const postData: any[] = [
     {
         user: 'jason',
@@ -40,6 +50,42 @@ const postData: any[] = [
         postId: '007',
         postCategory: 'concern',
         postContent: 'What if the world exploded?'
+    },
+    {
+        user: 'sarah',
+        postId: '008',
+        postCategory: 'idea',
+        postContent: 'Robots n Stuff'
+    },
+    {
+        user: 'sarah',
+        postId: '009',
+        postCategory: 'wish',
+        postContent: 'Food for the entire world'
+    },
+    {
+        user: 'taylor',
+        postId: '010',
+        postCategory: 'concern',
+        postContent: 'my pants...'
+    },
+    {
+        user: 'sarah',
+        postId: '011',
+        postCategory: 'idea',
+        postContent: 'The realm of possibility! dolphins, whales'
+    },
+    {
+        user: 'sarah',
+        postId: '012',
+        postCategory: 'wish',
+        postContent: 'life to be gooder'
+    },
+    {
+        user: 'taylor',
+        postId: '013',
+        postCategory: 'concern',
+        postContent: 'rhino-human hybrids'
     }
 ];
 
