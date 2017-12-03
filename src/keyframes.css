@@ -1,0 +1,22 @@
+@keyframes draftPostHover {
+    0% {color: "#A1A1A1"; border: '0px'}
+    100% {color: "#5D5DE5"; border: '1px solid #AAAAAA'}
+}
+
+@keyframes draftPostExitHover {
+    0% {color: "#5D5DE5"; border: '1px solid #AAAAAA'}
+    100% {color: "#A1A1A1"; border: '0px'}
+}
+
+@keyframes draftPostExitHover {
+    0% {color: "#5D5DE5"; border: '1px solid #AAAAAA'}
+    100% {color: "#A1A1A1"; border: '0px'}
+}
+
+.postBodyFilterOption {
+    background-color: #FFFFFF
+}
+
+.postBodyFilterOption:hover {
+    background-color: #AAAAAA
+}

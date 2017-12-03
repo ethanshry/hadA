@@ -1,0 +1,38 @@
+{
+  "name": "hada",
+  "version": "1.0.0",
+  "description": "An animated Social Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanshry/hadA.git"
+  },
+  "author": "ethanshry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanshry/hadA/issues"
+  },
+  "homepage": "https://github.com/ethanshry/hadA#readme",
+  "dependencies": {
+    "@types/lodash": "^4.14.86",
+    "@types/material-ui": "^0.18.5",
+    "@types/react": "^16.0.25",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-icons": "^2.2.4",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.19.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.1",
+    "babel-loader": "^7.1.2",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.6.2"
+  }
+}
