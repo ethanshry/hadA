@@ -2,19 +2,34 @@ import * as React from "react";
 
 import globals from "../globals";
 
-export default class Logo extends React.Component<{}, {}> {
+export interface LogoProps {
+    username: String;
+}
+
+export default class Logo extends React.Component<LogoProps, {}> {
 
     private getLogoStyle(): React.CSSProperties {
         return {
             fontSize: globals.typeface.logo.fontSize,
             fontFamily: globals.typeface.logo.fontFamily,
-            color: globals.colors.accent1,
+            color: globals.colors.gray1,
             position: 'absolute',
             right: 15
         };
     }
 
+    private getAppBrandStyle(): React.CSSProperties {
+        return {
+            color: globals.colors.accent1
+        };
+    }
+
     render() {
-        return <div style={this.getLogoStyle()}>hadA</div>;
+        return ( 
+            <div style={this.getLogoStyle()}>
+                {this.props.username}
+                <span style={this.getAppBrandStyle()}>hadA</span>
+            </div>
+        );
     }
 }

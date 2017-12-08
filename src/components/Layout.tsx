@@ -1,12 +1,11 @@
 import * as React from "react";
-import Logo from './Logo';
+import * as _ from 'lodash';
+
 import PageContainer from './PageContainer';
-import DraftPost from './DraftPost';
 import FilterBar from './FilterBar';
 import Post from './Post';
 import Footer from './Footer';
-
-import * as _ from 'lodash';
+import TopBar from './TopBar';
 
 import DemoPosts from '../demoPosts';
 
@@ -19,26 +18,15 @@ export interface LayoutProps {
 export interface iLayoutState {
     filters: String[];
     currentPostIndex: number;
-    // postsToRender: any[];
 }
 
 export class Layout extends React.Component<LayoutProps, iLayoutState> {
-
-    // private filters: String[] = ['fish', 'whales', 'tomatoes', 'rhinos'];
 
     constructor(props: LayoutProps) {
         super(props);
         this.state = {
             filters: [],
             currentPostIndex: 0
-            // postsToRender: DemoPosts
-        };
-    }
-
-    private getHeaderBarStyles(): React.CSSProperties {
-        return {
-            display: 'flex',
-            padding: 20
         };
     }
 
@@ -55,13 +43,7 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
                 });
                 includeFlag ? filteredPosts.push(post) : null;
             });
-            /*this.setState({
-               postsToRender: filteredPosts 
-            });*/
-        } else {/*
-            this.setState({
-                postsToRender: DemoPosts 
-             });*/
+        } else {
              filteredPosts = posts;
         }
         return filteredPosts;
@@ -123,11 +105,7 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
         <div>
             <PageContainer>
                 <div>
-                    <div style={this.getHeaderBarStyles()}>
-                        <DraftPost />
-                        <FilterBar filters={this.state.filters} removeFilter={this.removeFilter.bind(this)}/>
-                        <Logo />
-                    </div>
+                    <TopBar username={'username'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
                     <div>
                         {...postsToRender.reverse()}     
                     </div>
