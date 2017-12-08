@@ -44,10 +44,6 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
 
     private filteredPosts(): any[] {
         let posts = DemoPosts.slice(this.state.currentPostIndex, Math.min(DemoPosts.length, this.state.currentPostIndex + 10));
-        // console.log(this.state.filters.length);
-        console.log(this.state.currentPostIndex);
-        console.log(posts.length);
-        console.log("   ");
         let filteredPosts: any[] = [];
         if (this.state.filters.length != 0) {
             _.forEach(posts, (post: any) => {
@@ -66,7 +62,6 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
             this.setState({
                 postsToRender: DemoPosts 
              });*/
-             // console.log(this.state.postsToRender);
              filteredPosts = posts;
         }
         return filteredPosts;
@@ -81,7 +76,6 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
     }
 
     private addFilter(filter: String): void{
-        console.log('adding ' + filter);
         if (this.state.filters.indexOf(filter) == -1) {
             let newFilters: String[] = this.state.filters;
             newFilters.push(filter);
@@ -143,13 +137,4 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
         </div>
         );
     }
-}
-
-export interface iPostProps {
-    postBody: String;
-    username: String;
-    postCategory: String;
-    zIndex: number;
-    // relativePosition: [number, number];
-    addFilter(filter: String): void;
 }

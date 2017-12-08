@@ -18,7 +18,8 @@ export default class FilterBar extends React.Component<iFilterBarProps, {}> {
             display: 'flex',
             flex: '2',
             flexDirection: 'row',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            margin: 'auto'
         };
     }
 

@@ -11,7 +11,6 @@ export interface iPostProps {
     username: String;
     postCategory: String;
     zIndex: number;
-    // relativePosition: [number, number];
     addFilter(filter: String): void;
     setPrimary(zIndex: number): void;
 }
