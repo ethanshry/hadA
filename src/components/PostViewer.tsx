@@ -17,7 +17,7 @@ export interface PostViewerProps {
     updateIndex(direction: String): void;
 }
 
-export class Layout extends React.Component<PostViewerProps> {
+export default class PostViewer extends React.Component<PostViewerProps> {
 
     render() {
 

@@ -6,6 +6,7 @@ import FilterBar from './FilterBar';
 import Post from './Post';
 import Footer from './Footer';
 import TopBar from './TopBar';
+import PostViewer from './PostViewer';
 
 import DemoPosts from '../demoPosts';
 
@@ -84,31 +85,35 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
         }
     }
 
+    private updatePostIndex(direction: string): void {
+        switch(direction){
+            case 'decrement':
+                this.setState({
+                    currentPostIndex: this.state.currentPostIndex > 0 ? this.state.currentPostIndex - 1 : 0
+                });
+                break;
+            case 'increment':
+                // should check to see if is maxed out
+                this.setState({
+                    currentPostIndex: this.state.currentPostIndex + 1
+                });
+                break;
+        }
+        //TODO: grab more posts if needed
+    }
+
     render() {
-        
-        let postsToRender: JSX.Element[] = [];
-        _.forEach(this.filteredPosts(), (post: any, index: number) => {
-            postsToRender.push(
-                <Post 
-                    postBody={post.postContent}
-                    username={post.user}
-                    postCategory={post.postCategory}
-                    zIndex={index}
-                    addFilter={this.addFilter.bind(this)}
-                    setPrimary={this.setPrimary.bind(this)}
-                    key={index}
-                />
-            );
-        });
 
         return (
         <div>
             <PageContainer>
                 <div>
                     <TopBar username={'username'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
-                    <div>
-                        {...postsToRender.reverse()}     
-                    </div>
+                    <PostViewer 
+                        postData={this.filteredPosts()[this.state.currentPostIndex]}
+                        addFilter={this.addFilter.bind(this)}
+                        updateIndex={this.updatePostIndex.bind(this)}
+                    />
                 </div>
             </PageContainer>
             {/*<Footer />*/}
