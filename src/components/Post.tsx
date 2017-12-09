@@ -34,7 +34,9 @@ export default class Logo extends React.Component<PostProps, {}> {
             width: '50vw',
             height: '30vh',
             left: '25vw',
-            top: '25vh'
+            top: '25vh',
+            borderLeft: '15px solid ' + globals.colors.accent1,
+            display: 'flex'
         };
     }
 
@@ -45,9 +47,7 @@ export default class Logo extends React.Component<PostProps, {}> {
             color: globals.colors.dark,
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingBottom: 4,
-            borderBottom: '1px solid ' + globals.colors.accent1,
+            justifyContent: 'flex-end',
             flex: '0 0 auto'
         };
     }
@@ -57,10 +57,8 @@ export default class Logo extends React.Component<PostProps, {}> {
             fontSize: '1em',
             fontFamily: globals.typeface.logo.fontFamily,
             color: globals.colors.dark,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            flex: '0 0 auto'
+            justifyContent: 'flex-end',
+            display: 'flex'
         };
     }
 
@@ -75,18 +73,30 @@ export default class Logo extends React.Component<PostProps, {}> {
             flex: '1 1 auto',
             display: 'flex',
             alignItems: 'center',
-            whiteSpace: 'pre-wrap' // maintain spaces after <span> elements
+            whiteSpace: 'pre-wrap', // maintain spaces after <span> elements
         };
     }
 
     private getCategoryStyle(): React.CSSProperties {
         return {
-            backgroundColor: globals.colors.accent1,
-            color: globals.colors.light,
-            borderRadius: 9,
-            padding: 5,
-            paddingLeft: 20,
-            paddingRight: 20
+            color: globals.colors.accent1,
+            textTransform: 'capitalize'
+        };
+    }
+
+    private getActionIconPanelStyle(): React.CSSProperties {
+        return {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+        };
+    }
+
+    private getPostContentPanelStyle(): React.CSSProperties {
+        return {
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1
         };
     }
 
@@ -101,20 +111,27 @@ export default class Logo extends React.Component<PostProps, {}> {
         })
 
         return (
-        
             <div className={'post'} style={this.getPostBoxStyle()}>
-                <div style={{'width': '100%', 'height': '100%'}}>
-                    <div style={{'height': '100%', 'display': 'flex', 'flex-direction': 'column'}}>
-                        <div style={this.getPostHeaderStyle()}>
-                            <div onClick={this.props.addFilter.bind(this,this.props.username)}> <UserIcon fontSize={30} color={globals.colors.gray1} /> {this.props.username}</div>
-                            <div onClick={this.props.addFilter.bind(this,this.props.postCategory)} style={this.getCategoryStyle()}>{this.props.postCategory}</div>
+                <div style={this.getActionIconPanelStyle()}>
+                    <div><FavoriteIcon fontSize={30} color={globals.colors.gray1} /> 3</div>
+                </div>
+                <div style={this.getPostContentPanelStyle()}>
+                    <div style={this.getPostHeaderStyle()}>
+                        <div style={{borderBottom: '1px solid ' + globals.colors.gray1, paddingBottom: 4}}>
+                            <div>
+                                <UserIcon fontSize={30} color={globals.colors.gray1} />
+                                <span onClick={this.props.addFilter.bind(this,this.props.username)}>{"{" + this.props.username + "}"}</span>
+                                <span onClick={this.props.addFilter.bind(this,this.props.postCategory)} style={this.getCategoryStyle()}>{this.props.postCategory}</span>
+                            </div>
                         </div>
-                        <div style={this.getPostBodyStyle()}>
-                            {...postElementContents}
-                        </div>
-                        <div style={this.getPostFooterStyle()}>
-                            <div>{this.props.timestamp}</div>
-                            <div><FavoriteIcon fontSize={30} color={globals.colors.gray1} /> 3</div>
+                    </div>
+                    <div style={this.getPostBodyStyle()}>
+                        {...postElementContents}
+                    </div>
+                    <div style={this.getPostFooterStyle()}>
+                        <div style={{flex: 1}}></div>
+                        <div style={{borderTop: '1px solid ' + globals.colors.gray1, paddingTop: 4}}>
+                            {this.props.timestamp}
                         </div>
                     </div>
                 </div>
