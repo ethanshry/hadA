@@ -8,14 +8,13 @@ export default class PageContainer extends React.Component<{children: JSX.Elemen
             height: '100vh',
             overflowX: 'hidden',
             overflowY: 'hidden',
-            position: 'relative',
             padding: '8px auto'
         };
     }
 
     render() {
         return <div style={this.getPageContainerStyle()}>
-                <div>{this.props.children}</div>
+                <div style={{height: '100%'}}>{this.props.children}</div>
             </div>;
     }
 }

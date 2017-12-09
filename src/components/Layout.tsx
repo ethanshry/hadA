@@ -107,7 +107,7 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
         return (
         <div>
             <PageContainer>
-                <div>
+                <div style={{height: '100%'}}>
                     <TopBar username={'username'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
                     <PostViewer 
                         postData={this.filteredPosts()[this.state.currentPostIndex]}

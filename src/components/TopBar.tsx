@@ -18,7 +18,8 @@ export default class TopBar extends React.Component<TopBarProps> {
         return {
             display: 'flex',
             padding: 20,
-            borderBottom: '1px solid ' + global.colors.gray1
+            borderBottom: '1px solid ' + global.colors.gray1,
+            height: '7vh'
         };
     }
 

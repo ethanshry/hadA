@@ -5,6 +5,7 @@ import globals from "../globals";
 
 let UserIcon = require("react-icons/lib/md/person");
 let FavoriteIcon = require("react-icons/lib/md/star");
+let ShareIcon = require("react-icons/lib/md/share");
 
 export interface PostProps {
     postBody: String;
@@ -27,14 +28,11 @@ export default class Logo extends React.Component<PostProps, {}> {
         return {
             fontSize: globals.typeface.post.fontSizeMain,
             fontFamily: globals.typeface.post.fontFamily,
-            position: 'absolute',
             boxShadow: '0px 0px 50px #888888',
             padding: 15,
             backgroundColor: '#FFFFFF',
             width: '50vw',
             height: '30vh',
-            left: '25vw',
-            top: '25vh',
             borderLeft: '15px solid ' + globals.colors.accent1,
             display: 'flex'
         };
@@ -114,6 +112,7 @@ export default class Logo extends React.Component<PostProps, {}> {
             <div className={'post'} style={this.getPostBoxStyle()}>
                 <div style={this.getActionIconPanelStyle()}>
                     <div><FavoriteIcon fontSize={30} color={globals.colors.gray1} /> 3</div>
+                    <ShareIcon fontSize={30} color={globals.colors.gray1} />
                 </div>
                 <div style={this.getPostContentPanelStyle()}>
                     <div style={this.getPostHeaderStyle()}>
