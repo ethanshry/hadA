@@ -4,6 +4,6 @@ import * as ReactDOM from "react-dom";
 import { Layout } from "./components/Layout";
 
 ReactDOM.render(
-    <Layout compiler="TypeScript" framework="React" />,
+    <Layout />,
     document.getElementById("contentMain")
 );

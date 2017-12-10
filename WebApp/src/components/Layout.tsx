@@ -7,27 +7,26 @@ import Post from './Post';
 import Footer from './Footer';
 import TopBar from './TopBar';
 import PostViewer from './PostViewer';
+import AuthContainer from './AuthContianer';
 
 import DemoPosts from '../demoPosts';
-
-
-export interface LayoutProps {
-    compiler: string;
-    framework: string;
-}
 
 export interface iLayoutState {
     filters: String[];
     currentPostIndex: number;
+    activeUser: String;
+    isAuthenticated: boolean;
 }
 
-export class Layout extends React.Component<LayoutProps, iLayoutState> {
+export class Layout extends React.Component<null, iLayoutState> {
 
-    constructor(props: LayoutProps) {
+    constructor(props: null) {
         super(props);
         this.state = {
             filters: [],
-            currentPostIndex: 0
+            currentPostIndex: 0,
+            activeUser: "",
+            isAuthenticated: false
         };
     }
 
@@ -102,18 +101,32 @@ export class Layout extends React.Component<LayoutProps, iLayoutState> {
         //TODO: grab more posts if needed
     }
 
+    private authorizeUser(user: string): void {
+        this.setState({
+           activeUser: user,
+           isAuthenticated: true 
+        });
+    }
+
     render() {
 
         return (
         <div>
             <PageContainer>
                 <div style={{height: '100%'}}>
-                    <TopBar username={'username'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
-                    <PostViewer 
-                        postData={this.filteredPosts()[this.state.currentPostIndex]}
-                        addFilter={this.addFilter.bind(this)}
-                        updateIndex={this.updatePostIndex.bind(this)}
-                    />
+                    {this.state.isAuthenticated &&
+                    <div style={{height: '100%'}}>
+                        <TopBar username={'username'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
+                        <PostViewer 
+                            postData={this.filteredPosts()[this.state.currentPostIndex]}
+                            addFilter={this.addFilter.bind(this)}
+                            updateIndex={this.updatePostIndex.bind(this)}
+                        />
+                    </div>
+                    }
+                    {!this.state.isAuthenticated &&
+                        <AuthContainer authorizeUser={this.authorizeUser.bind(this)}/>
+                    }`
                 </div>
             </PageContainer>
             {/*<Footer />*/}

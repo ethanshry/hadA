@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start": "http-server -o",
-    "pack-w": "webpack"
+    "pack": "webpack"
   },
   "repository": {
     "type": "git",
