@@ -42,7 +42,7 @@ export default class Logo extends React.Component<PostProps, {}> {
         return {
             fontSize: globals.typeface.post.fontSizeHeader,
             fontFamily: globals.typeface.logo.fontFamily,
-            color: globals.colors.dark,
+            color: globals.colors.gray1,
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'flex-end',
@@ -54,7 +54,7 @@ export default class Logo extends React.Component<PostProps, {}> {
         return {
             fontSize: '1em',
             fontFamily: globals.typeface.logo.fontFamily,
-            color: globals.colors.dark,
+            color: globals.colors.gray1,
             justifyContent: 'flex-end',
             display: 'flex'
         };
@@ -64,7 +64,7 @@ export default class Logo extends React.Component<PostProps, {}> {
         return {
             fontSize: '1.7em',
             fontFamily: globals.typeface.logo.fontFamily,
-            color: globals.colors.dark,
+            color: globals.colors.gray1,
             alignSelf: 'center',
             paddingLeft: '20px',
             paddingRight: '20px',
@@ -72,6 +72,7 @@ export default class Logo extends React.Component<PostProps, {}> {
             display: 'flex',
             alignItems: 'center',
             whiteSpace: 'pre-wrap', // maintain spaces after <span> elements
+            flexWrap: 'wrap' //TODO: remove space between wrapped content (reduce visiblke 'line-height')
         };
     }
 
