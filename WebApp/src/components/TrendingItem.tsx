@@ -7,10 +7,10 @@ let UserIcon = require("react-icons/lib/md/person");
 export interface TrendingItemProps {
     trendCategory: String;
     trendContent: String;
-    updateFilter(filter: String): void;
+    updateFilter(filter: String): void; //TODO: Implement removal of trend once selected in filter?
 }
 
-export default class Logo extends React.Component<TrendingItemProps, {}> {
+export default class TrendingItem extends React.Component<TrendingItemProps, {}> {
 
     private getTrendItemStyle(): React.CSSProperties {
         return {
@@ -25,7 +25,7 @@ export default class Logo extends React.Component<TrendingItemProps, {}> {
     render() {
         // TODO: get icons for other two types of trends
         return (
-            <div className={'post'} style={this.getTrendItemStyle()}>
+            <div style={this.getTrendItemStyle()}>
                 {this.props.trendCategory.toLowerCase() == "user" &&
                     <UserIcon />
                 }

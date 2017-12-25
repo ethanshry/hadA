@@ -8,6 +8,7 @@ import Footer from './Footer';
 import TopBar from './TopBar';
 import PostViewer from './PostViewer';
 import AuthContainer from './AuthContianer';
+import TrendingBar from './TrendingBar';
 
 import DemoPosts from '../demoPosts';
 
@@ -108,6 +109,35 @@ export class Layout extends React.Component<null, iLayoutState> {
         });
     }
 
+    //TODO: pull in via API
+    public tempTrends: any[] = [
+        {
+            trendContent: 'John',
+            trendCategory: 'user',
+            updateFilter: this.addFilter.bind(this)
+        },
+        {
+            trendContent: 'Fish',
+            trendCategory: 'topic',
+            updateFilter: this.addFilter.bind(this)
+        },
+        {
+            trendContent: 'Idea',
+            trendCategory: 'category',
+            updateFilter: this.addFilter.bind(this)
+        },
+        {
+            trendContent: 'Sarah',
+            trendCategory: 'User',
+            updateFilter: this.addFilter.bind(this)
+        },
+        {
+            trendContent: 'Whales',
+            trendCategory: 'topic',
+            updateFilter: this.addFilter.bind(this)
+        }
+    ]
+
     render() {
 
         return (
@@ -122,11 +152,12 @@ export class Layout extends React.Component<null, iLayoutState> {
                             addFilter={this.addFilter.bind(this)}
                             updateIndex={this.updatePostIndex.bind(this)}
                         />
+                        <TrendingBar trendItems={this.tempTrends}/>
                     </div>
                     }
                     {!this.state.isAuthenticated &&
                         <AuthContainer authorizeUser={this.authorizeUser.bind(this)}/>
-                    }`
+                    }
                 </div>
             </PageContainer>
             {/*<Footer />*/}

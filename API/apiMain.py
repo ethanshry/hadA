@@ -121,4 +121,14 @@ def createNewUser(username, password):
     # password: String
     # should insert user into user DB and return void. Request service should then call getUserAuthentication with the new credentials.
 
+#
+# ACTIONS
+#
+
+@route('/post/action/publishPost/<username>/<postCategory>/<postContent>')
+def publishNewPost(username, postCategory, postContent):
+    # username: String, valid to user or userID??
+    # postCategory: String, valid post Cateogry (should be defined somewhere publicly) (perhaps in a table)
+    # postContent: String, perhaps character limited and Web-Safe
+
 application = default_app()
