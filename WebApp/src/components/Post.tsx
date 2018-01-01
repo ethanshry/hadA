@@ -63,7 +63,7 @@ export default class Logo extends React.Component<PostProps, {}> {
     private getPostBodyStyle(): React.CSSProperties {
         return {
             fontSize: '1.7em',
-            fontFamily: globals.typeface.logo.fontFamily,
+            fontFamily: globals.typeface.post.fontFamily,
             color: globals.colors.gray1,
             alignSelf: 'center',
             paddingLeft: '20px',

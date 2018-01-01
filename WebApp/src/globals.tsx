@@ -1,16 +1,16 @@
 const globals: any = {
     typeface: {
         logo: {
-            fontFamily: 'sans-serif',
+            fontFamily: "'Quicksand Bold'",
             fontSize: '3em'
         },
         post: {
-            fontFamily: 'monospace',
+            fontFamily: "'Quicksand'",
             fontSizeMain: '1em',
             fontSizeHeader: '2.2em'
         },
         body: {
-            fontFamily: 'monospace'
+            fontFamily: "'Quicksand'"
         }
     },
     colors: {

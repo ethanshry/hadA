@@ -5,6 +5,35 @@
         <title>Hello React!</title>
     </head>
     <body style="margin: 0px;">
+        <style>
+                @font-face {
+                    font-family: "Quicksand";
+                    font-style: normal;
+                    font-weight: 400;
+                    src: local('Quicksand'),
+                            url('./src/resources/font_quicksand/Quicksand-Regular.woff2') format('woff2'),
+                            url('./src/resources/font_quicksand/Quicksand-Regular.woff') format('woff'),
+                            url('./src/resources/font_quicksand/Quicksand-Regular.ttf') format('truetype');
+                }
+                @font-face {
+                    font-family: "Quicksand Light";
+                    font-style: normal;
+                    font-weight: 200;
+                    src: local('QuicksandLight'), local('Quicksand Light'),
+                            url('./src/resources/font_quicksand/Quicksand-Light.woff2') format('woff2'),
+                            url('./src/resources/font_quicksand/Quicksand-Light.woff') format('woff'),
+                            url('./src/resources/font_quicksand/Quicksand-Light.ttf') format('truetype');
+                }
+                @font-face {
+                    font-family: "Quicksand Bold";
+                    font-style: normal;
+                    font-weight: 400;
+                    src: local('QuicksandBold'), local('Quicksand Bold'),
+                            url('./src/resources/font_quicksand/Quicksand-Bold.woff2') format('woff2'),
+                            url('./src/resources/font_quicksand/Quicksand-Bold.woff') format('woff'),
+                            url('./src/resources/font_quicksand/Quicksand-Bold.ttf') format('truetype');
+                }
+            </style>
         <div id="contentMain"></div>
 
         <!-- Dependencies -->
@@ -15,5 +44,6 @@
         <script src="./dist/bundle.js"></script>
 
         <link rel="stylesheet" type="text/css" href="./src/keyframes.css">
+        
     </body>
 </html>

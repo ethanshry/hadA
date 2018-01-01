@@ -19,6 +19,7 @@ export default class AuthContainer extends React.Component<AuthContainerProps, n
             width: '40vw',
             padding: 20,
             boxShadow: '0px 0px 50px #888888',
+            fontFamily: globals.typeface.body.fontFamily
         };
     }
 
@@ -52,7 +53,8 @@ export default class AuthContainer extends React.Component<AuthContainerProps, n
             marginRight: '20%',
             padding: 10,
             backgroundColor: globals.colors.accent1,
-            color: globals.colors.light
+            color: globals.colors.light,
+            cursor: 'pointer'
         };
     }
 
