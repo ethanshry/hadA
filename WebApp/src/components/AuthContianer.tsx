@@ -5,7 +5,18 @@ export interface AuthContainerProps {
     authorizeUser(user: string): void;
 }
 
-export default class AuthContainer extends React.Component<AuthContainerProps, null> {
+interface AuthContainerState {
+    usernameIsValid: boolean;
+}
+
+export default class AuthContainer extends React.Component<AuthContainerProps, AuthContainerState> {
+
+    constructor(props: AuthContainerProps) {
+        super(props);
+        this.state = {
+            usernameIsValid: false
+        };
+    }
 
     private getContainerStyle(): React.CSSProperties {
         return {
@@ -58,13 +69,63 @@ export default class AuthContainer extends React.Component<AuthContainerProps, n
         };
     }
 
+    private getInputWrapperStyle():React.CSSProperties {
+        return {
+            display: 'flex',
+            flexDirection: 'column'
+        };
+    }
+
+    private getUsernameInputStatusStyle():React.CSSProperties {
+        if (!this.state.usernameIsValid) {
+            return {
+                marginTop: 3,
+                color: globals.colors.accent1,
+                textAlign: 'center'
+            };
+        } else {
+            return {
+                marginTop: 3,
+                color: "white", //should match background color
+                textAlign: 'center'
+            };
+        }
+    }
+
     private testAuthorization(): void {
-        let username: string = document.getElementById("usernameInput").textContent;
-        let password: string = document.getElementById("passwordInput").textContent;
+        let username: string = (document.getElementById("usernameInput") as HTMLInputElement).value;
+        let password: string = (document.getElementById("passwordInput") as HTMLInputElement).value;
         let authFlag: boolean = true;
         //TODO: Call auth API
         if (authFlag) {
             this.props.authorizeUser(username);
+        }
+    }
+
+    private createNewUser(): void {
+        let username: string = (document.getElementById("usernameInput") as HTMLInputElement).value;
+        let password: string = (document.getElementById("passwordInput") as HTMLInputElement).value;
+        let authFlag: boolean = true;
+        //TODO: Call auth API
+        if (authFlag) {
+            this.props.authorizeUser(username);
+        }
+    }
+
+    private testUsernameValidity(): void {
+        let username: string = (document.getElementById("usernameInput") as HTMLInputElement).value;
+        //TODO: Actually validate username
+        console.log(username);
+        if (username == "test") {
+            console.log("valid");
+            this.setState({
+                usernameIsValid: true
+            });
+        } else {
+            console.log("invalid");
+            this.setState({
+                usernameIsValid: false
+            });
         }
     }
 
@@ -73,9 +134,17 @@ export default class AuthContainer extends React.Component<AuthContainerProps, n
         return (
         <div style={this.getContainerStyle()}>
             <div style={this.getHeaderStyle()}> Login </div>
-            <input style={this.getInputStyle()} id="usernameInput" type="text" placeholder="username" />
+            <div style={this.getInputWrapperStyle()}>
+                <input style={this.getInputStyle()} id="usernameInput" type="text" placeholder="username" onChange={this.testUsernameValidity.bind(this)} />
+                <div style={this.getUsernameInputStatusStyle()}>username is not a pre-existing user</div>
+            </div>
             <input style={this.getInputStyle()} id="passwordInput" type="text" placeholder="password" />
-            <div style={this.getButtonStyle()} onClick={this.testAuthorization.bind(this)}> Submit </div>
+            { this.state.usernameIsValid &&
+            <div style={this.getButtonStyle()} onClick={this.testAuthorization.bind(this)}> Log In </div>
+            }
+            { !this.state.usernameIsValid &&
+            <div style={this.getButtonStyle()} onClick={this.createNewUser.bind(this)}> Create Account </div>
+            }
         </div>
         );
     }
