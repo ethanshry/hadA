@@ -13,7 +13,6 @@ export default class Logo extends React.Component<LogoProps, {}> {
             fontSize: globals.typeface.logo.fontSize,
             fontFamily: globals.typeface.body.fontFamily,
             color: globals.colors.gray1,
-            position: 'absolute',
             right: 15
         };
     }

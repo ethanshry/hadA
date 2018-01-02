@@ -19,7 +19,8 @@ export default class FilterBar extends React.Component<iFilterBarProps, {}> {
             flex: '2',
             flexDirection: 'row',
             justifyContent: 'center',
-            margin: 'auto'
+            margin: 'auto',
+            flexWrap: 'wrap'
         };
     }
 
@@ -34,7 +35,8 @@ export default class FilterBar extends React.Component<iFilterBarProps, {}> {
             padding: 5,
             paddingLeft: 10,
             paddingRight: 10,
-            fontSize: '.4em'
+            fontSize: '.4em',
+            margin: 3
         };
     }
 
