@@ -39,7 +39,7 @@ export class Layout extends React.Component<null, iLayoutState> {
                 let includeFlag = false;
                 _.forEach(this.state.filters, (filter: string) => {
                     // do case insensitive match (hence 'i')
-                    if (post.user.match(new RegExp(filter, 'i')) || post.postCategory.includes(filter) || post.postContent.includes(filter)) {
+                    if (post.user.match(new RegExp(filter, 'i')) || post.postCategory.match(new RegExp(filter, 'i')) || post.postContent.match(new RegExp(filter, 'i'))) {
                         includeFlag = true;
                     }
                 });
