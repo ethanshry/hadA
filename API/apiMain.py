@@ -8,7 +8,7 @@
 
 import json
 import pyodbc
-from bottle import default_app, route, response
+from bottle import run, route, response
 
 serverCredentials = {
     'server': "sql11.ezhostingserver.com",
@@ -19,46 +19,46 @@ serverCredentials = {
 
 returnData = []
 #connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER=' + serverCredentials['server'] + ';DATABASE=' + serverCredentials['database'] + ';UID=' + serverCredentials['username'] + ';PWD=' + serverCredentials['password'])
-connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER=sql11.exhostingserver.com;DATABASE=HadA_Main;UID=admin-main;PWD=passtheword-1')
+#connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER=sql11.exhostingserver.com;DATABASE=HadA_Main;UID=admin-main;PWD=passtheword-1')
 
-cursor = connection.cursor()
-cursor.execute("SELECT name, password FROM Users WHERE name='bill'")
-rows = cursor.fetchall()
-for row in rows:
-    returnData.append(row)
-print(returnData)
+#cursor = connection.cursor()
+#cursor.execute("SELECT name, password FROM Users WHERE name='bill'")
+#rows = cursor.fetchall()
+#for row in rows:
+#    returnData.append(row)
+#print(returnData)
 
 #@route('/get/verifyUser/<username>')
 def checkForValidUsername(username):
-    cursor.execute("SELECT COUNT(*) FROM Users WHERE name='" + username + "'")
-    res = cursor.fetchone()
-    print(res)
-    returnData = {
-        'isValid': False
-    }
-    if (res[0] == 1):
-        returnData['isValid'] = True
+    #cursor.execute("SELECT COUNT(*) FROM Users WHERE name='" + username + "'")
+    #res = cursor.fetchone()
+    #print(res)
+    #returnData = {
+    #    'isValid': False
+    #}
+    #if (res[0] == 1):
+    #    returnData['isValid'] = True
 
-    response.content_type = 'application/json'
-    return json.dumps(returnData)
+    #response.content_type = 'application/json'
+    return json.dumps({})
 
 #application = default_app()
-print(checkForValidUsername('john'))
+#print(checkForValidUsername('john'))
 
 
-import json
+#import json
 #import pyodbc
 import pymssql
-from bottle import default_app, route, response
+#from bottle import default_app, route, response
 
-serverCredentials = {
-    'server': "sql11.ezhostingserver.com",
-    'database': "HadA_Main",
-    'username': "admin-main",
-    'password': "passtheword-1"
-}
+#serverCredentials = {
+#    'server': "sql11.ezhostingserver.com",
+#    'database': "HadA_Main",
+#    'username': "admin-main",
+#    'password': "passtheword-1"
+#}
 
-returnData = []
+#returnData = []
 #connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER=' + serverCredentials['server'] + ';DATABASE=' + serverCredentials['database'] + ';UID=' + serverCredentials['username'] + ';PWD=' + serverCredentials['password'])
 #connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER=sql11.exhostingserver.com;DATABASE=HadA_Main;UID=admin-main;PWD=passtheword-1')
 
@@ -92,6 +92,7 @@ def checkForValidUsername(username):
 
 @route('/get/feedItems/<currentIndex>/<numRequestedItems>/<filters>')
 def getFeedItems(currentIndex, numRequestedItems, filters):
+    return None
     # currentIndex: integer 0 -> inf, API should verify isn't past bounds of posts in existance
     # numRequestedItems: integer 1 -> inf 
     # filters: string, CSV for filters. user should be USER$:$username, category should be CATEGORY$:$categoryname
@@ -99,6 +100,7 @@ def getFeedItems(currentIndex, numRequestedItems, filters):
 
 @route('/get/trendingItems/')
 def getTrendingItems():
+    return json.dumps({'temp': 'data'})
     # should grab some recently popular categories, terms, and users from the db and return an array of trendItem objects
 #
 # AUTHENTICATION
@@ -106,17 +108,20 @@ def getTrendingItems():
 
 @route('/get/auth/verifyUser/<username>')
 def getUserAuthentication(username):
+    return None
     # username: String
     # should verify user is a valid user. Return true/false
 
 @route('/get/auth/authenticateUser/<username>/<password>')
 def getUserAuthentication(username, password):
+    return None
     # username: String
     # password: String
     # should verify user credentals and authenticate them, returning true/false authenticated
 
 @route('/post/auth/createUser/<username>/<password>')
 def createNewUser(username, password):
+    return None
     # username: String
     # password: String
     # should insert user into user DB and return void. Request service should then call getUserAuthentication with the new credentials.
@@ -127,8 +132,9 @@ def createNewUser(username, password):
 
 @route('/post/action/publishPost/<username>/<postCategory>/<postContent>')
 def publishNewPost(username, postCategory, postContent):
+    return None
     # username: String, valid to user or userID??
     # postCategory: String, valid post Cateogry (should be defined somewhere publicly) (perhaps in a table)
     # postContent: String, perhaps character limited and Web-Safe
 
-application = default_app()
+run(host='localhost', port=3000, debug=True)
