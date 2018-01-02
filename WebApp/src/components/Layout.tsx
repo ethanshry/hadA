@@ -113,28 +113,23 @@ export class Layout extends React.Component<null, iLayoutState> {
     public tempTrends: any[] = [
         {
             trendContent: 'John',
-            trendCategory: 'user',
-            updateFilter: this.addFilter.bind(this)
+            trendCategory: 'user'
         },
         {
             trendContent: 'Fish',
-            trendCategory: 'topic',
-            updateFilter: this.addFilter.bind(this)
+            trendCategory: 'topic'
         },
         {
             trendContent: 'Idea',
-            trendCategory: 'category',
-            updateFilter: this.addFilter.bind(this)
+            trendCategory: 'category'
         },
         {
             trendContent: 'Sarah',
-            trendCategory: 'User',
-            updateFilter: this.addFilter.bind(this)
+            trendCategory: 'User'
         },
         {
             trendContent: 'Whales',
-            trendCategory: 'topic',
-            updateFilter: this.addFilter.bind(this)
+            trendCategory: 'topic'
         }
     ]
 
@@ -152,7 +147,7 @@ export class Layout extends React.Component<null, iLayoutState> {
                             addFilter={this.addFilter.bind(this)}
                             updateIndex={this.updatePostIndex.bind(this)}
                         />
-                        <TrendingBar trendItems={this.tempTrends}/>
+                        <TrendingBar trendItems={this.tempTrends} updateFilter={this.addFilter.bind(this)}/>
                     </div>
                     }
                     {!this.state.isAuthenticated &&

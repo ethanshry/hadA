@@ -126,7 +126,9 @@ export default class Logo extends React.Component<PostProps, {}> {
                         </div>
                     </div>
                     <div style={this.getPostBodyStyle()}>
-                        {...postElementContents}
+                        <div>
+                            {...postElementContents}
+                        </div>
                     </div>
                     <div style={this.getPostFooterStyle()}>
                         <div style={{flex: 1}}></div>
