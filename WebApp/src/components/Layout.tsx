@@ -142,7 +142,7 @@ export class Layout extends React.Component<null, iLayoutState> {
                 <div style={{height: '100%'}}>
                     {this.state.isAuthenticated &&
                     <div style={{height: '100%'}}>
-                        <TopBar username={'username'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
+                        <TopBar username={'jason'} activeFilters={this.state.filters} removeFilter={this.removeFilter.bind(this)} />
                         <PostViewer 
                             postData={this.filteredPosts()[this.state.currentPostIndex]}
                             addFilter={this.addFilter.bind(this)}

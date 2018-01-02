@@ -1,6 +1,6 @@
 import * as React from "react";
 import Logo from './Logo';
-import DraftPost from './DraftPost';
+import DraftPost, {DraftPostProps} from './DraftPost';
 import FilterBar from './FilterBar';
 
 import global from '../globals';
@@ -27,7 +27,7 @@ export default class TopBar extends React.Component<TopBarProps> {
         return (
         <div>
             <div style={this.getHeaderBarStyles()}>
-                <DraftPost />
+                <DraftPost username={this.props.username}/>
                 <FilterBar filters={this.props.activeFilters} removeFilter={this.props.removeFilter.bind(this)}/>
                 <Logo username={this.props.username}/>
             </div>

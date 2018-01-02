@@ -29,7 +29,7 @@ export default class PostViewer extends React.Component<PostViewerProps> {
         return (
         <div style={{display: 'flex', height: 'calc(100% - 15vh - 7vh - 40px)', alignItems: 'center', justifyContent: 'space-around', backgroundColor: globals.colors.gray1}}>
             <div style={{fontSize: '90px'}} onClick={this.props.updateIndex.bind(this, 'decrement')}>
-                <LeftIcon color={globals.colors.light} />
+                <LeftIcon color={globals.colors.light} style={{cursor: 'pointer'}} />
             </div>
             <div>
                 <Post 
@@ -42,7 +42,7 @@ export default class PostViewer extends React.Component<PostViewerProps> {
                     />
             </div>
             <div style={{fontSize: '90px'}} onClick={this.props.updateIndex.bind(this, 'increment')}>
-                <RightIcon color={globals.colors.light} />
+                <RightIcon color={globals.colors.light} style={{cursor: 'pointer'}}/>
             </div>
         </div>
         );

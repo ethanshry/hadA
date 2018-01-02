@@ -87,7 +87,8 @@ export default class Logo extends React.Component<PostProps, {}> {
         return {
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center'
+            justifyContent: 'space-around',
+            fontFamily: globals.typeface.logo.fontFamily
         };
     }
 
@@ -112,7 +113,10 @@ export default class Logo extends React.Component<PostProps, {}> {
         return (
             <div className={'post'} style={this.getPostBoxStyle()}>
                 <div style={this.getActionIconPanelStyle()}>
-                    <div><FavoriteIcon fontSize={30} color={globals.colors.gray1} /> 3</div>
+                    <div style={{display: 'flex'}}>
+                        <FavoriteIcon fontSize={30} color={globals.colors.gray1} />
+                        <div style={{margin: '5px auto', paddingLeft: 5}}>3</div>
+                    </div>
                     <ShareIcon fontSize={30} color={globals.colors.gray1} />
                 </div>
                 <div style={this.getPostContentPanelStyle()}>

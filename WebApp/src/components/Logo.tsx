@@ -28,7 +28,7 @@ export default class Logo extends React.Component<LogoProps, {}> {
     render() {
         return ( 
             <div style={this.getLogoStyle()}>
-                {this.props.username}
+                <span>{this.props.username}</span>
                 <span style={this.getAppBrandStyle()}>hadA</span>
             </div>
         );
