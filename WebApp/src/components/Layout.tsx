@@ -38,7 +38,8 @@ export class Layout extends React.Component<null, iLayoutState> {
             _.forEach(posts, (post: any) => {
                 let includeFlag = false;
                 _.forEach(this.state.filters, (filter: string) => {
-                    if (post.user.includes(filter) || post.postCategory.includes(filter) || post.postContent.includes(filter)) {
+                    // do case insensitive match (hence 'i')
+                    if (post.user.match(new RegExp(filter, 'i')) || post.postCategory.includes(filter) || post.postContent.includes(filter)) {
                         includeFlag = true;
                     }
                 });
